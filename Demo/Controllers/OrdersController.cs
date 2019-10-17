@@ -23,6 +23,13 @@ namespace Demo.Controllers
             return View(model);
         }
 
+        public IActionResult CustomCss(int pageIndex = 1)
+        {
+            var model = GetPagedOrders(pageIndex, pageSize);
+            this.PartialView()
+            return View(model);
+        }
+
         public IActionResult Ajax(int pageIndex = 1)
         {
             var model = GetPagedOrders(pageIndex, pageSize);

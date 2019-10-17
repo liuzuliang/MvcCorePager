@@ -1,0 +1,91 @@
+﻿@model PagedList<Order>
+@{
+    ViewBag.Title = "Default settings";
+    PagerOptions pagerOptions = new PagerOptions
+    {
+        PageIndexParameterName = "pageIndex",
+        NumericPagerItemCount = 5,
+        //ContainerTagName = "div",
+        //CssClass = "pagination",
+        CurrentPagerItemTemplate = "<span class=\"number\">{0}</span>",
+        DisabledPagerItemTemplate = "<a disabled=\"disabled\">{0}</a>",
+        PagerItemTemplate = "<span>{0}</span>",
+        Id = "bootstrappager2",
+        PageIndexBoxId = "pageIndexBox",
+        GoToButtonId = "goToBtn"
+    };
+
+    
+}
+<link href="~/css/pager-main.css" rel="stylesheet" />
+<link href="~/css/pager-extra.css" rel="stylesheet" />
+<h1 class="pb-2 mt-4 mb-2 border-bottom">Default settings</h1>
+<table class="table table=bordered table-striped">
+    <tr>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th class="nowrap">
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+        </tr>
+    }
+</table>
+<h3>Html extension method syntax:</h3>
+<br/>
+<div class="pagination">
+    <!-- 分页1 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br/>
+<div id="diggpager">
+    <!-- 分页2 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br />
+<div id="menepager">
+    <!-- 分页3 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br />
+<div id="flickrpager">
+    <!-- 分页4 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br />
+<div id="graypager">
+    <!-- 分页5 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br />
+<div id="blackpager">
+    <!-- 分页6 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
+<br />
+<div id="badoopager">
+    <!-- 分页6 -->
+    @Html.Pager(Model, pagerOptions)
+</div>
